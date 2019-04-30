@@ -1,0 +1,22 @@
+import React from 'react'
+
+const Rainbow = (WrappedComponent) => {
+    
+    const colours = ['red', 'pink', 'orange', 'blue', 'green', 'yellow']
+    const randomColor = colours[Math.floor(Math.random() * 5)]
+    const className = randomColor + '-text'
+
+    return (props) => {
+
+        // Rainbow HOC has acess to the WrappedComponent props...
+        //console.log("hoc -> Rainbow -> return ", props)
+
+        return (
+            <div className={className}>
+                <WrappedComponent {...props} />
+            </div>
+        )
+    }
+}
+
+export default Rainbow
